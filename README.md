@@ -1,11 +1,10 @@
 ![App Brewery Banner](https://github.com/londonappbrewery/Images/blob/master/AppBreweryBanner.png)
 
 
-# Clima ☁ //in progress..not finished
+# Bitcoin Ticker 🤑 //not finished/in progress
+ a crypto currency price checking app. By the end of the module, you'll be able to monitor your bitcoin investents on the move!
 
-a weather app inspired by the beautiful designs made by [Olia Gozha](https://dribbble.com/shots/4663154-). 
-
-![Finished App](https://github.com/londonappbrewery/Images/blob/master/clima-demo.gif)
+![Finished App](https://github.com/londonappbrewery/Images/blob/master/bitcoin-flutter-demo.gif)
 
 
 >This is a companion project to The App Brewery's Complete Flutter Development Bootcamp, check out the full course at [www.appbrewery.co](https://www.appbrewery.co/)
