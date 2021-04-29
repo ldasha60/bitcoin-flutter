@@ -53,10 +53,6 @@ class _PriceScreenState extends State<PriceScreen> {
     );
   }
 
-  String value = '?';
-
-  //TODO 7: Figure out a way of displaying a '?' on screen while we're waiting for the price data to come back. Hint: You'll need a ternary operator.
-
   Map<String, String> coinValues = {};
   bool isWaiting = false;
 
@@ -79,7 +75,22 @@ class _PriceScreenState extends State<PriceScreen> {
     getData();
   }
 
-  //TODO: For bonus points, create a method that loops through the cryptoList and generates a CryptoCard for each.
+  Column makeCards() {
+    List<CryptoCard> cryptoCards = [];
+    for (String crypto in cryptoList) {
+      cryptoCards.add(
+        CryptoCard(
+          cryptoCurrency: crypto,
+          selectedCurrency: selectedCurrency,
+          value: isWaiting ? '?' : coinValues[crypto],
+        ),
+      );
+    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: cryptoCards,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,13 +102,7 @@ class _PriceScreenState extends State<PriceScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Column(
-            children: [
-              CryptoCard(value: value, selectedCurrency: selectedCurrency),
-              CryptoCard(value: value, selectedCurrency: selectedCurrency),
-              CryptoCard(value: value, selectedCurrency: selectedCurrency),
-            ],
-          ),
+          makeCards(),
           Container(
             height: 150.0,
             alignment: Alignment.center,
