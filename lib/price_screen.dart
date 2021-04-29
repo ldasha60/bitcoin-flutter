@@ -57,12 +57,16 @@ class _PriceScreenState extends State<PriceScreen> {
 
   //TODO 7: Figure out a way of displaying a '?' on screen while we're waiting for the price data to come back. Hint: You'll need a ternary operator.
 
-  //TODO 6: Update this method to receive a Map containing the crypto:price key value pairs. Then use that map to update the CryptoCards.
+  Map<String, String> coinValues = {};
+  bool isWaiting = false;
+
   void getData() async {
+    isWaiting = true;
     try {
-      double data = await CoinData().getCoinData(selectedCurrency);
+      var data = await CoinData().getCoinData(selectedCurrency);
+      isWaiting = false;
       setState(() {
-        value = data.toStringAsFixed(0);
+        coinValues = data;
       });
     } catch (e) {
       print(e);
